@@ -1,0 +1,218 @@
+# Creado por https://www.toptal.com/developers/gitignore/api/node,windows,linux,macos
+# Editar en https://www.toptal.com/developers/gitignore?templates=node,windows,linux,macos
+
+### Linux ###
+*~
+
+# archivos temporales que se pueden crear si un proceso todavía tiene un identificador abierto de un archivo eliminado
+.fuse_hidden*
+
+# Preferencias del directorio de KDE
+.directorio
+
+# Carpeta de basura de Linux que puede aparecer en cualquier partición o disco
+.Basura-*
+
+# Los archivos .nfs se crean cuando se elimina un archivo abierto pero aún se accede a él
+.nfs*
+
+### Mac OS ###
+# General
+.DS_Tienda
+.AppleDoble
+.LSOanular
+
+# El ícono debe terminar con dos \r
+Icono
+
+
+# Miniaturas
+._*
+
+# Archivos que pueden aparecer en la raíz de un volumen
+.DocumentRevisions-V100
+.fseventsd
+.Foco-V100
+.TemporaryItems
+.Papeleras
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directorios potencialmente creados en recursos compartidos AFP remotos
+.AppleDB
+.AppleDesktop
+Papelera de red
+Artículos temporales
+.apdisk
+
+### Parche de macOS ###
+# archivos generados por iCloud
+*.icloud
+
+### Nodo ###
+# Registros
+registros
+*.Iniciar sesión
+npm-debug.log*
+hilo-debug.log*
+hilo-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Informes de diagnóstico (https://nodejs.org/api/report.html)
+informe.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# datos de tiempo de ejecución
+pids
+*.pid
+*.semilla
+*.pid.lock
+
+# Directorio para bibliotecas instrumentadas generadas por jscoverage/JSCover
+lib-cov
+
+# Directorio de cobertura utilizado por herramientas como estambul
+cobertura
+*.lcov
+
+# cobertura de prueba de Nueva York
+.nyc_salida
+
+# Almacenamiento intermedio de Grunt (https://gruntjs.com/creating-plugins#storing-task-files)
+.gruñido
+
+# Directorio de dependencias de Bower (https://bower.io/)
+Bower_components
+
+# configuración de nodo-waf
+.lock-wscript
+
+# Complementos binarios compilados (https://nodejs.org/api/addons.html)
+construir/lanzamiento
+
+# directorios de dependencia
+node_modules/
+jspm_paquetes/
+
+# Directorio de dependencias de Snowpack (https://snowpack.dev/)
+módulos_web/
+
+# Caché de mecanografiado
+*.tsbuildinfo
+
+# Directorio de caché npm opcional
+.npm
+
+# Caché eslint opcional
+.eslintcache
+
+# Caché de estilo opcional
+.stylelintcache
+
+# Caché de micropaquetes
+.rpt2_caché/
+.rts2_caché_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Historial de REPL opcional
+.node_repl_history
+
+# Salida de 'paquete npm'
+*.tgz
+
+# Archivo de integridad del hilo
+.integridad del hilo
+
+# archivos de variables de entorno dotenv
+.env
+.env.desarrollo.local
+.env.test.local
+.env.producción.local
+.env.local
+
+# caché del empaquetador de paquetes (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Salida de compilación de Next.js
+.Siguiente
+afuera
+
+# Nuxt.js construir/generar salida
+.nuxt
+dist
+
+# archivos Gatsby
+.cache/
+# Comenta en la línea pública si tu proyecto usa Gatsby y no Next.js
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# público
+
+# salida de compilación de vuepress
+.vuepress/dist
+
+# vuepress v2.x directorio temporal y caché
+.temperatura
+
+# Caché de Docusaurus y archivos generados
+.docusaurus
+
+# directorios sin servidor
+.sin servidor/
+
+# Caché de FuseBox
+.caja de fusibles/
+
+# Archivos locales de DynamoDB
+.dynamodb/
+
+# archivo de puerto TernJS
+.tern-puerto
+
+# Almacena las versiones de VSCode utilizadas para probar las extensiones de VSCode
+.vscode-prueba
+
+# hilo v2
+.hilo/caché
+.hilo/desenchufado
+.yarn/construir-estado.yml
+.yarn/estado-de-instalación.gz
+.pnp.*
+
+### Parche de nodo ###
+# Directorios de paquetes web sin servidor
+.paquete web/
+
+# Caché de estilo opcional
+
+# SvelteKit construir/generar salida
+.svelte-kit
+
+### Ventanas ###
+# Archivos de caché de miniaturas de Windows
+Pulgares.db
+Thumbs.db: encriptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Volcar archivo
+*.stackdump
+
+# archivo de configuración de la carpeta
+[Dd]esktop.ini
+
+# Papelera de reciclaje utilizada en archivos compartidos
+$RECICLAJE.BIN/
+
+# archivos del instalador de Windows
+*.taxi
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Atajos de Windows
+*.lnk
+
+# Fin de https://www.toptal.com/developers/gitignore/api/node,windows,linux,macos
