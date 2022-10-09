@@ -1,0 +1,5 @@
+GET   http://localhost:5000/api/v1/products/
+GET   http://localhost:5000/api/v1/products/ID
+POST  http://localhost:5000/api/v1/products
+PATCH http://localhost:5000/api/v1/products/ID
+DEL   http://localhost:5000/api/v1/products/ID
