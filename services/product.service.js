@@ -1,12 +1,16 @@
 const { faker } = require('@faker-js/faker');
 const boom = require('@hapi/boom');
 
+const pool = require('../dataBase/mysql.pool');
+
 
 class ProductsService {
 
   constructor(){
     this.products = [];
     this.generate();
+    this.pool = pool;
+    this.pool.on('error', (err) => console.error(err));
   }
 
   generate() {
@@ -29,18 +33,18 @@ class ProductsService {
     }
     this.products.push(newProduct);
     return newProduct;
+
   }
 
-  find() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.products)
+  async find() {
+    return new Promise((resolve, reject) =>{
+      pool.query(`SELECT * FROM productos`, (error, result) =>{
+          return error ? reject(error) : resolve(result);
       }, 5000)
     });
   }
 
   async findOne(id) {
-    //const name = this.getTotal();
     const product = this.products.find(item => item.id === id);
     if (!product) {
       throw boom.notFound('product not found');
@@ -52,25 +56,21 @@ class ProductsService {
   }
 
   async update(id, changes) {
-    const index = this.products.findIndex(item => item.id === id);
-    if (index === -1){
-      throw boom.notFound('product not found');
-    }
-    const product = this.products[index]
-    this.products[index] = {
-      ...product,
-      ...changes
-    };
-    return this.products[index];
+
+    return new Promise((resolve, reject) =>{
+      pool.query(`UPDATE productos SET ?  WHERE id = ${id}`, [changes], (error, result) =>{
+          return error ? reject(error) : resolve(result);
+      })
+  });
   }
 
   async delete(id) {
-    const index = this.products.findIndex(item => item.id === id);
-    if (index === -1){
-      throw boom.notFound('product not found');
-    }
-    this.products.splice(index,1);
-    return { id };
+
+    return new Promise((resolve, reject) =>{
+      pool.query(`DELETE FROM productos WHERE id = ${id}`, (error, result) =>{
+          return error ? reject(error) : resolve(result);
+      })
+  });
   }
 }
 

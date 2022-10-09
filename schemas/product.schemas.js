@@ -1,19 +1,18 @@
 const Joi = require('joi');
 
-const id = Joi.string().uuid();
-const name = Joi.string().min(3).max(15);
-const price = Joi.number().integer().min(10);
-const image = Joi.string().uri();
+const id = Joi.number().integer();
+const nombre = Joi.string().min(3).max(15);
+// const price = Joi.number().integer().min(10);
+// const image = Joi.string().uri();
 
 const createProductSchema = Joi.object({
-  name: name.required(),
-  price: price.required(),
-  image: image.required()
+  nombre: nombre.required(),
+
 });
 
 const updateProductSchema = Joi.object({
-  name: name,
-  price: price,
+  nombre: nombre,
+  // price: price,
 });
 
 const getProductSchema = Joi.object({
