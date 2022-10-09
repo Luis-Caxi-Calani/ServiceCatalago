@@ -7,6 +7,7 @@ const {createProductSchema, updateProductSchema, getProductSchema } = require('.
 const router = express.Router();
 const service = new ProductsService();
 
+//Mostramos todos los productos
 router.get('/', async (req, res, next) => {
   try {
     const products = await service.find();
@@ -16,9 +17,6 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.get('/filter', (req, res) =>{
-  res.send('filtroooo');
-});
 
 //Encontrar un producto por su ID
 router.get('/:id',
@@ -35,6 +33,7 @@ router.get('/:id',
   }
 );
 
+//Insertamos un nuevo producto
 router.post('/',
   validatorHandler(createProductSchema, 'body'),
   async (req, res) => {
@@ -44,6 +43,7 @@ router.post('/',
   }
 );
 
+//Eliminamos un producto
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   const body = req.body;
@@ -51,6 +51,7 @@ router.delete('/:id', async (req, res) => {
   res.json(rta);
 });
 
+//Actualizamos el producto
 router.patch('/:id',
   validatorHandler(getProductSchema, 'params'),
   validatorHandler(updateProductSchema, 'body'),
