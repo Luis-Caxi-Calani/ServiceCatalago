@@ -1,5 +1,5 @@
-const { faker } = require('@faker-js/faker');
-const boom = require('@hapi/boom');
+
+//const boom = require('@hapi/boom');
 
 const pool = require('../dataBase/mysql.pool');
 
@@ -7,32 +7,19 @@ const pool = require('../dataBase/mysql.pool');
 class ProductsService {
 
   constructor(){
-    this.products = [];
-    this.generate();
+    
     this.pool = pool;
     this.pool.on('error', (err) => console.error(err));
   }
 
-  generate() {
-    const limit = 100;
-    for (let index = 0; index < limit; index++){
-      this.products.push({
-         id: faker.datatype.uuid(),
-         name: faker.commerce.productName(),
-         price: parseInt(faker.commerce.price(), 10),
-         image: faker.image.imageUrl(),
-         isBlock: faker.datatype.boolean(),
-      });
-    }
-  }
+  
 
   async create(data) {
-    const newProduct ={
-      id: faker.datatype.uuid(),
-      ...data
-    }
-    this.products.push(newProduct);
-    return newProduct;
+    return new Promise((resolve, reject) =>{
+      pool.query(`INSERT INTO productos SET ?`, data, (error, result) =>{
+          return error ? reject(error) : resolve(result);
+      })
+  });
 
   }
 
@@ -45,14 +32,11 @@ class ProductsService {
   }
 
   async findOne(id) {
-    const product = this.products.find(item => item.id === id);
-    if (!product) {
-      throw boom.notFound('product not found');
-    }
-    if (product.isBlock){
-      throw boom.conflict('product is block');
-    }
-    return product;
+    return new Promise((resolve, reject) =>{
+      pool.query(`SELECT * FROM productos WHERE id = ${id}`, (error, result) =>{
+          return error ? reject(error) : resolve(result);
+      })
+  });
   }
 
   async update(id, changes) {
